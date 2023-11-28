@@ -16,6 +16,10 @@ st.write(
     " to get started!"
 )
 
+password_guess = st.text_input('What is the Password?')
+if password_guess != 'streamlit_password':
+    st.stop()
+
 penguin_file = None
 # penguin_file = st.file_uploader('Upload your own penguin data')
 if penguin_file is None:
