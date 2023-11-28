@@ -9,13 +9,14 @@ import pickle
 # 2. Look at how does the file uploader and the submit button can interact
 # 3. Make this thing more predictable by caching some application states.
 
-st.title("Penguin Classifier")
+st.title("Penguin Classifier: A Machine Learning App")
 st.write(
     "This app uses 6 inputs to predict the species of penguin using"
     "a model built on the Palmer Penguins dataset. Use the form below"
     " to get started!"
 )
 
+penguin_file = None
 # penguin_file = st.file_uploader('Upload your own penguin data')
 if penguin_file is None:
     penguin_df = pd.read_csv("penguins.csv")
@@ -100,6 +101,7 @@ new_prediction = rfc.predict(
 prediction_species = unique_penguin_mapping[new_prediction][0]
 st.subheader("Predicting Your Penguin's Species:")
 st.write(f"We predict your penguin is of the {prediction_species} species")
+
 st.write(
     """We used a machine learning (Random Forest)
     model to predict the species, the features
