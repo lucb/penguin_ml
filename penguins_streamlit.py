@@ -17,7 +17,7 @@ st.write(
 )
 
 password_guess = st.text_input('What is the Password?')
-if password_guess != 'streamlit_password':
+if password_guess != st.secrets["password"]:
     st.stop()
 
 penguin_file = None
